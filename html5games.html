@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>html 5 game</title>
+        <style>
+            canvas{ 
+                border: 5px solid blue;
+                margin: 50px auto;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Html 5 Games</h1>
+        <script>
+            var gameobj = {
+                canvas: document.createElement('canvas'),
+                start:function(){
+                    console.log(this.name);
+                    this.canvas = this.setMyAttribute(this.canvas,{ width:700,height:600 });//Actual Arg
+                    this.context = this.canvas.getContext("2d");
+                    console.log(this.canvas);
+
+                    console.log(document.scripts[0]);
+
+                   document.body.insertBefore(this.canvas,document.scripts[0]);
+
+                },
+
+                setMyAttribute:function(element,object){ 
+                    for (var key in object) {
+                        element.setAttribute(key,object[key])
+                    }
+                    return element;
+                }
+            };
+            console.log(gameobj);
+            console.log(gameobj.canvas);
+            gameobj.start()
+        </script>
+    </body>
+</html>
